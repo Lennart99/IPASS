@@ -1,11 +1,14 @@
 # Prerequisites
 *.d
+*.bin
+*.map
 
 # Compiled Object files
 *.slo
 *.lo
 *.o
 *.obj
+*.c
 
 # Precompiled Headers
 *.gch
@@ -30,3 +33,9 @@
 *.exe
 *.out
 *.app
+*.elf
+*.ld
+
+#codelite
+*.project
+.codelite
