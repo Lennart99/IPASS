@@ -45,7 +45,7 @@ public:
 	
 	max7219(hwlib::spi_bus & bus, hwlib::pin_out & sel, unsigned int x, unsigned int y): bus(bus), sel(sel),size_x(x),size_y(y) {
 		init();
-		for(unsigned int i = 0; i<size; i++) {
+		for(unsigned int i = 0; i<x*y; i++) {
 			screens[i] = screen();
 		}
 	}

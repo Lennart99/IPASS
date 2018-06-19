@@ -21,8 +21,8 @@ public:
 		 {}
 
 	uint8_t setPixel(unsigned int x, unsigned int y, bool b) {
-		if(x > 0x07) x = 0x07;
-		if(y > 0x07) y = 0x07;
+		x = x & 0x07;
+		y = y & 0x07;
 		
 		uint8_t d = data[y];
 		if(b) {
