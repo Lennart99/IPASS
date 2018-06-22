@@ -29,6 +29,14 @@ TEST_CASE( "setPixel, x=0, off" ){
    REQUIRE( d2 == 0b00000000 );
 }
 
+TEST_CASE( "setPixel, x=1, y=4" ){
+   screen s;
+   uint8_t d = s.setPixel(1,4,true);
+   REQUIRE( d == 0b01000000 );
+   uint8_t d2 = s.setPixel(1,4,false);
+   REQUIRE( d2 == 0b00000000 );
+}
+
 TEST_CASE( "setPixel, x=1" ){
    screen s;
    uint8_t d = s.setPixel(1,3,true);
