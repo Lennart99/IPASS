@@ -20,31 +20,25 @@ void board::setRow(unsigned int y, uint16_t d) {
 	window.setRow(y,out);
 }
 
-bool board::getPixel(unsigned int y, unsigned int x) {
-	uint16_t d = getRow(y);
-	uint16_t mask = 0x8000 >> x;
-	d = d & mask;
-	return d == mask;
+bool board::getPixel(unsigned int x, unsigned int y) {
+	return window.getPixel(x,y);
 }
 
-void board::setPixel(unsigned int y, unsigned int x, bool b) {
-	uint16_t d = getRow(y);
-	if(b) {
-		d = d | (0x8000 >> x);
-	} else {
-		d = d & ~(0x8000 >> x);
-	}
-	setRow(y,d);
+void board::setPixel(unsigned int x, unsigned int y, bool b) {
+	window.setPixel(x,y,b);
 }
 
 void board::removeFullRows() {
-	for(unsigned int y = 0; y < 24; y++) {
+	unsigned int max = 24;
+	for(unsigned int y = 0; y < max; y++) {
 		// remove all rows that are directly on top of the first one
-		while(getRow(y) == 0xFFFF) {
+		while(getRow(y) == 0xFFFF) {// full row
 			// shift everything down by one
 			for(unsigned int i = 0; i < 23; i++) {
-				setRow(i, getRow(i+1));
+				setRow(i, getRow(i+1)); // copy row from above
 			}
+			setRow(max-1, 0x000); // remove row that isn't overridden by another one
+			max--; // row is empty, no need to check empty rows when we know they are empty
 		}
 	}
 }

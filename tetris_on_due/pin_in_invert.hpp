@@ -7,11 +7,10 @@ class pin_in_invert : public hwlib::pin_in {
 private:
 	hwlib::pin_in & pin;
 public:
-	pin_in_invert(hwlib::pin_in & p):
-	pin(p) {}
+	pin_in_invert(hwlib::pin_in & p): pin(p) {}
 	
 	bool get(hwlib::buffering buf = hwlib::buffering::unbuffered) override {
-		return pin.get(buf);
+		return !pin.get(buf);
 	}
 	
 	void refresh() override {

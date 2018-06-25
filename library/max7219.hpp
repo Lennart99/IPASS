@@ -8,7 +8,6 @@ class max7219 {
 private:
 	hwlib::spi_bus & bus;
 	hwlib::pin_out & sel;
-	//hwlib::console cout;
 	
 	const unsigned int size_x;
 	const unsigned int size_y;
@@ -30,6 +29,10 @@ public:
 	}
 	
 	void setPixel(unsigned int x, unsigned int y, bool b);
+	
+	void setRow(unsigned int y, uint8_t data[]);
+	
+	uint8_t * getRow(unsigned int y);
 		
 }; // class max7219
 

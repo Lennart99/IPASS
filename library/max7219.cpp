@@ -31,10 +31,10 @@ void max7219::init() {
 void max7219::setPixel(unsigned int x, unsigned int y, bool b) {//8,12
 	if(x >= size_x*8) x = (size_x*8)-1;
 	if(y >= size_y*8) y = (size_y*8)-1;
-	unsigned int x_screen = x >> 3;//1
-	unsigned int y_screen = y >> 3;//1
+	unsigned int x_screen = x >> 3;
+	unsigned int y_screen = y >> 3;
 	
-	unsigned int s = size_x*y_screen+x_screen;//2*1+1=3
+	unsigned int s = size_x*y_screen+x_screen;
 	uint8_t d = screens[s].setPixel(x&0x07, y&0x07, b);
 	
 	uint8_t out[size*2];
@@ -50,4 +50,38 @@ void max7219::setPixel(unsigned int x, unsigned int y, bool b) {//8,12
 	}
 	
 	bus.write_and_read( sel, size*2, out, nullptr );
+}
+
+void max7219::setRow(unsigned int y, uint8_t data[]) {
+	if(y >= size_y*8) y = (size_y*8)-1;
+	unsigned int y_screen = y >> 3;
+	
+	unsigned int offset = size_x*y_screen;
+	
+	uint8_t out[size*2];
+	
+	for(unsigned int i = 0; i < size; i++) {
+		out[i*2]  = 0;
+		out[i*2+1]= 0;
+	}
+	
+	for(unsigned int x = 0; x < size_x; x++) {
+			uint8_t d = data[x];
+			screens[x+offset].setRow(y&0x07, d);
+			out[(x+offset)*2]  = (y&0x07)+1;
+			out[(x+offset)*2+1]= d;
+	}
+	
+	bus.write_and_read( sel, size*2, out, nullptr );
+}
+
+uint8_t * max7219::getRow(unsigned int y) {
+	unsigned int offset = (y >> 3) * size_x;
+	uint8_t out[size_x];
+	for(unsigned int x = 0; x < size_x; x++) {
+		out[x] = screens[x+offset].getRow(y&0x07);
+	}
+	
+	uint8_t * point = &out[0];
+	return point;
 }

@@ -28,13 +28,24 @@ void max7219::init() {
 	clear();
 }
 
-void max7219::setPixel(unsigned int x, unsigned int y, bool b) {//8,12
+bool max7219::getPixel(unsigned int x, unsigned int y) {
 	if(x >= size_x*8) x = (size_x*8)-1;
 	if(y >= size_y*8) y = (size_y*8)-1;
 	unsigned int x_screen = x >> 3;
 	unsigned int y_screen = y >> 3;
 	
-	unsigned int s = size_x*y_screen+x_screen;
+	screen s = screens[size_x*y_screen+x_screen];
+	
+	return s.getPixel(x&0x07, y&0x07);
+}
+
+void max7219::setPixel(unsigned int x, unsigned int y, bool b) {//7,0,true
+	if(x >= size_x*8) x = (size_x*8)-1;//7
+	if(y >= size_y*8) y = (size_y*8)-1;//0
+	unsigned int x_screen = x >> 3;//0
+	unsigned int y_screen = y >> 3;//0
+	
+	unsigned int s = size_x*y_screen+x_screen;//0
 	uint8_t d = screens[s].setPixel(x&0x07, y&0x07, b);
 	
 	uint8_t out[size*2];

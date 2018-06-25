@@ -22,6 +22,8 @@ public:
 
 	uint8_t setPixel(unsigned int x, unsigned int y, bool b);
 	
+	bool getPixel(unsigned int x, unsigned int y);
+	
 	void setRow(unsigned int y, uint8_t data);
 	
 	uint8_t getRow(unsigned int y);

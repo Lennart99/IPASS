@@ -6,13 +6,26 @@
 
 class piece {
 private:
-	board window;
+	board & window;
+	uint8_t x;
+	uint8_t y;
+	
+	bool canMoveLeft();
+	bool canMoveRight();
+	
 	
 public:
-	piece(max7219 & w): window(w)
-		 {}
-
-	void run();
+	bool canBePlaced();
+	void place();
+	
+	piece(board & w): window(w),x(0),y(0)
+		 {place();}
+	
+	bool canMoveDown();
+	
+	void moveLeft();
+	void moveRight();
+	void moveDown();
 		
 }; // class piece
 

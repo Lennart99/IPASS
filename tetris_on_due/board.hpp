@@ -7,17 +7,17 @@ class board {
 private:
 	max7219 & window;
 	
-public:
-	board(max7219 & w): window(w)
-		 {}
-
 	uint16_t getRow(unsigned int y);
 	
 	void setRow(unsigned int y, uint16_t d);
 	
-	bool getPixel(unsigned int y, unsigned int x);
+public:
+	board(max7219 & w): window(w)
+		 {}
 	
-	void setPixel(unsigned int y, unsigned int x, bool b);
+	bool getPixel(unsigned int x, unsigned int y);
+	
+	void setPixel(unsigned int x, unsigned int y, bool b);
 	
 	void removeFullRows();
 		
