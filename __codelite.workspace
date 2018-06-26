@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeLite_Workspace Name="example code" Database="">
+<CodeLite_Workspace Name="example code" Database="" Version="10.0.0">
   <Project Name="library" Path="library/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="library" ConfigName="Release"/>
     </WorkspaceConfiguration>
-  </BuildMatrix> 
+  </BuildMatrix>
   <Project Name="tetris_on_due" Path="tetris_on_due/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="tetris_on_due" ConfigName="Release"/>
     </WorkspaceConfiguration>
-  </BuildMatrix> 
-  <Project Name="unit_tests" Path="unit_tests/_codelite.project" Active="No"/>
+  </BuildMatrix>
+  <Project Name="unit_tests" Path="unit_tests/_codelite.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="unit_tests" ConfigName="Release"/>
     </WorkspaceConfiguration>
-  </BuildMatrix> 
+  </BuildMatrix>
 </CodeLite_Workspace>
