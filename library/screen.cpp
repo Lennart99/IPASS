@@ -15,6 +15,17 @@ uint8_t screen::setPixel(unsigned int x, unsigned int y, bool b) {
 	return d;
 }
 
+bool screen::getPixel(unsigned int x, unsigned int y) {
+	if(x > 0x07) x = 0x07;
+	if(y > 0x07) y = 0x07;
+	
+	uint8_t d = data[y];
+	
+	uint16_t mask = 0x80 >> x;
+	d = d & mask;
+	return d == mask;
+}
+
 void screen::setRow(unsigned int y, uint8_t d) {
 	if(y > 0x07) y = 0x07;
 	data[y] = d;

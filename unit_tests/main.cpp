@@ -1,4 +1,4 @@
-#include "screen.hpp"
+#include "../library/screen.hpp"
 
 // needed to get Catch working with MinGW
 #define TWOBLUECUBES_CATCH_REPORTER_JUNIT_HPP_INCLUDED

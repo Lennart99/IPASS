@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := screen.cpp max7219.cpp
+SOURCES := ../library/screen.cpp
 
 # header files in this project
-HEADERS := screen.hpp max7219.hpp
+HEADERS := ../library/screen.hpp
 
 # other places to look for files for this project
 SEARCH  := 
@@ -20,4 +20,4 @@ SEARCH  :=
 # set RELATIVE to the next higher directory 
 # and defer to the appropriate Makefile.* there
 RELATIVE := ..
-include $(RELATIVE)/Makefile.native
+include $(RELATIVE)/Makefile.due

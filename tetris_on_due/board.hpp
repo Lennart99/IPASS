@@ -1,7 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#include "max7219.hpp"
+#include "../library/max7219.hpp"
 
 class board {
 private:

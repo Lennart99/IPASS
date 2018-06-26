@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := screen.cpp max7219.cpp board.cpp game.cpp piece.cpp
+SOURCES := ../library/screen.cpp ../library/max7219.cpp board.cpp game.cpp piece.cpp
 
 # header files in this project
-HEADERS := screen.hpp max7219.hpp board.hpp game.hpp piece.hpp pin_in_invert.hpp
+HEADERS := ../library/screen.hpp ../library/max7219.hpp board.hpp game.hpp piece.hpp pin_in_invert.hpp
 
 # other places to look for files for this project
 SEARCH  := 

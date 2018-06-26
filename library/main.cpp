@@ -9,9 +9,12 @@ int main() {
 	auto clk = hwlib::target::pin_out(hwlib::target::pins::d10);
 	
 	auto spi = hwlib::spi_bus_bit_banged_sclk_mosi_miso(clk, din, hwlib::pin_in_dummy);
-	auto b = max7219(spi, cs, 2, 2);
-	
-	for(;;) {
+	auto b = max7219(spi, cs, 2,1);
+	b.setPixel(7, 0, true);
+	b.setPixel(8, 0, true);
+	b.setPixel(7, 1, true);
+	b.setPixel(8, 1, true);
+	/*for(;;) {
 		b.setPixel(8,11,true);
 		hwlib::wait_ms(500);
 		b.setPixel(8,11,false);
@@ -77,5 +80,5 @@ int main() {
 		b.setPixel(15,12,true);
 		hwlib::wait_ms(500);
 		b.setPixel(15,12,false);
-	}
+	}*/
 }

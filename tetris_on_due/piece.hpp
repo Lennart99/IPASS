@@ -13,6 +13,8 @@ private:
 	bool canMoveLeft();
 	bool canMoveRight();
 	
+	void print();
+	void remove();
 	
 public:
 	bool canBePlaced();

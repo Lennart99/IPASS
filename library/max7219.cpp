@@ -21,14 +21,25 @@ void max7219::clear() {
 void max7219::init() {
 	sendData(0x0F, 0x00); // test-mode(off)
 	sendData(0x0C, 0x01); // shutdown-mode(off)
-	sendData(0x0A, 0x0F); // brightness
+	sendData(0x0A, 0x0F); // brightness(full)
 	sendData(0x0B, 0x07); // scan(all)
 	sendData(0x09, 0x00); // Decode-Mode(off)
 	
 	clear();
 }
 
-void max7219::setPixel(unsigned int x, unsigned int y, bool b) {//8,12
+bool max7219::getPixel(unsigned int x, unsigned int y) {
+	if(x >= size_x*8) x = (size_x*8)-1;
+	if(y >= size_y*8) y = (size_y*8)-1;
+	unsigned int x_screen = x >> 3;
+	unsigned int y_screen = y >> 3;
+	
+	screen s = screens[size_x*y_screen+x_screen];
+	
+	return s.getPixel(x&0x07, y&0x07);
+}
+
+void max7219::setPixel(unsigned int x, unsigned int y, bool b) {
 	if(x >= size_x*8) x = (size_x*8)-1;
 	if(y >= size_y*8) y = (size_y*8)-1;
 	unsigned int x_screen = x >> 3;
