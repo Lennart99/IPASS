@@ -2,7 +2,7 @@
 // Copyright (c) Lennart Jensen (lennart.jensen@student.hu.nl) 2018
 //
 // Distributed under the Boost Software License, Version 1.0.
-// (See accompanying file LICENSE_1_0.txt or copy at
+// (See accompanying file LICENSE.md or copy at
 // http://www.boost.org/LICENSE_1_0.txt)
 //
 // ==========================================================================
@@ -38,16 +38,19 @@ void board::setPixel(unsigned int x, unsigned int y, bool b) {
 }
 
 void board::removeFullRows() {
-	unsigned int max = 24;
-	for(unsigned int y = 0; y < max; y++) {
+	for(unsigned int y = 0; y < 24; y++) {
 		// remove all rows that are directly on top of the first one
 		while(getRow(y) == 0xFFFF) {// full row
-			// shift everything down by one
-			for(unsigned int i = 0; i < 23; i++) {
-				setRow(i, getRow(i+1)); // copy row from above
+			if(y == 0) {
+				// shifting can't be done when there is nothing above the row to remove
+				setRow(0, 0x000);
+			} else {
+				setRow(1, 0x000); // remove row that isn't overridden by another one
+				// shift everything down by one
+				for(unsigned int i = 1; i < y+1; i++) {
+					setRow(i, getRow(i-1)); // copy row from above
+				}
 			}
-			setRow(max-1, 0x000); // remove row that isn't overridden by another one
-			max--; // row is empty, no need to check empty rows when we know they are empty
 		}
 	}
 }

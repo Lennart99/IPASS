@@ -2,14 +2,14 @@
 // Copyright (c) Lennart Jensen (lennart.jensen@student.hu.nl) 2018
 //
 // Distributed under the Boost Software License, Version 1.0.
-// (See accompanying file LICENSE_1_0.txt or copy at
+// (See accompanying file LICENSE.md or copy at
 // http://www.boost.org/LICENSE_1_0.txt)
 //
 // ==========================================================================
 
 #include "screen.hpp"
 
-uint8_t screen::setPixel(unsigned int x, unsigned int y, bool b) {
+uint8_t screen::setPixel(unsigned int x, unsigned int y, const bool b) {
 	if(x > 0x07) x = x&0x07;
 	if(y > 0x07) y = y&0x07;
 	
@@ -32,10 +32,10 @@ bool screen::getPixel(unsigned int x, unsigned int y) {
 	
 	uint16_t mask = 0x80 >> x;
 	d = d & mask;
-	return d == mask;
+	return d != 0;
 }
 
-void screen::setRow(unsigned int y, uint8_t d) {
+void screen::setRow(unsigned int y, const uint8_t d) {
 	if(y > 0x07) y = y&0x07;
 	data[y] = d;
 }

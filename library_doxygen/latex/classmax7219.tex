@@ -1,0 +1,191 @@
+\hypertarget{classmax7219}{}\section{max7219 Class Reference}
+\label{classmax7219}\index{max7219@{max7219}}
+
+
+class to control multiple \mbox{\hyperlink{classmax7219}{max7219}} L\+E\+D-\/matixes as one display  
+
+
+
+
+{\ttfamily \#include $<$max7219.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmax7219_a892f1c436090d79718d264e3f8fe0029}{max7219}} (hwlib\+::spi\+\_\+bus \&bus, hwlib\+::pin\+\_\+out \&sel, uint8\+\_\+t x, uint8\+\_\+t y)
+\item 
+void \mbox{\hyperlink{classmax7219_ab63d56bdc1aa6f1fd2dd4290737d3303}{send\+Data}} (uint\+\_\+fast8\+\_\+t address, uint\+\_\+fast8\+\_\+t d)
+\begin{DoxyCompactList}\small\item\em sends 2 bytes of data to all connected L\+E\+D-\/matixes at the same time \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmax7219_a285fdbbb7c29dcaa10634ac6756d7b49}{clear}} ()
+\begin{DoxyCompactList}\small\item\em clears all L\+E\+D-\/matixes at the same time, by sending commands to set registers 1 till 9 to 0 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmax7219_a7f1ed36b8de02c39eb7cdbdd6348ae8a}{set\+Pixel}} (unsigned int x, unsigned int y, const bool b)
+\begin{DoxyCompactList}\small\item\em sets the state of an pixel \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmax7219_a50efeaec89dc19034359967de0c5fe97}{get\+Pixel}} (unsigned int x, unsigned int y)
+\begin{DoxyCompactList}\small\item\em gets the state of an pixel as an boolean \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmax7219_a87ca725fb912b4f6c4093bc29d89046b}{set\+Row}} (unsigned int y, const uint8\+\_\+t data\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em sets an whole row at once \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{classmax7219_a0f9339f854dea8c0499dbfc4785fc9e2}{get\+Row}} (unsigned int y)
+\begin{DoxyCompactList}\small\item\em gets an whole row at once \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+class to control multiple \mbox{\hyperlink{classmax7219}{max7219}} L\+E\+D-\/matixes as one display 
+
+The pixels are saved in separate screen instances for every \mbox{\hyperlink{classmax7219}{max7219}} ~\newline
+for an configuration of 2x3 matrixes it should be wired as folows\+: ~\newline
+configuration\+:~\newline
+ 1 2~\newline
+ 3 4~\newline
+ 5 6~\newline
+~\newline
+due $>$ 6 $>$ 5 $>$ 4 $>$ 3 $>$ 2 $>$ 1 
+
+Definition at line 32 of file max7219.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmax7219_a892f1c436090d79718d264e3f8fe0029}\label{classmax7219_a892f1c436090d79718d264e3f8fe0029}} 
+\index{max7219@{max7219}!max7219@{max7219}}
+\index{max7219@{max7219}!max7219@{max7219}}
+\subsubsection{\texorpdfstring{max7219()}{max7219()}}
+{\footnotesize\ttfamily max7219\+::max7219 (\begin{DoxyParamCaption}\item[{hwlib\+::spi\+\_\+bus \&}]{bus,  }\item[{hwlib\+::pin\+\_\+out \&}]{sel,  }\item[{uint8\+\_\+t}]{x,  }\item[{uint8\+\_\+t}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 45 of file max7219.\+hpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmax7219_a285fdbbb7c29dcaa10634ac6756d7b49}\label{classmax7219_a285fdbbb7c29dcaa10634ac6756d7b49}} 
+\index{max7219@{max7219}!clear@{clear}}
+\index{clear@{clear}!max7219@{max7219}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void max7219\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+clears all L\+E\+D-\/matixes at the same time, by sending commands to set registers 1 till 9 to 0 
+
+
+
+Definition at line 24 of file max7219.\+cpp.
+
+\mbox{\Hypertarget{classmax7219_a50efeaec89dc19034359967de0c5fe97}\label{classmax7219_a50efeaec89dc19034359967de0c5fe97}} 
+\index{max7219@{max7219}!get\+Pixel@{get\+Pixel}}
+\index{get\+Pixel@{get\+Pixel}!max7219@{max7219}}
+\subsubsection{\texorpdfstring{get\+Pixel()}{getPixel()}}
+{\footnotesize\ttfamily bool max7219\+::get\+Pixel (\begin{DoxyParamCaption}\item[{unsigned int}]{x,  }\item[{unsigned int}]{y }\end{DoxyParamCaption})}
+
+
+
+gets the state of an pixel as an boolean 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the X coordinate of the pixel to get the state of \\
+\hline
+{\em y} & the Y coordinate of the pixel to get the state of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the state of the pixel (on=true, off=false) 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file max7219.\+cpp.
+
+\mbox{\Hypertarget{classmax7219_a0f9339f854dea8c0499dbfc4785fc9e2}\label{classmax7219_a0f9339f854dea8c0499dbfc4785fc9e2}} 
+\index{max7219@{max7219}!get\+Row@{get\+Row}}
+\index{get\+Row@{get\+Row}!max7219@{max7219}}
+\subsubsection{\texorpdfstring{get\+Row()}{getRow()}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ max7219\+::get\+Row (\begin{DoxyParamCaption}\item[{unsigned int}]{y }\end{DoxyParamCaption})}
+
+
+
+gets an whole row at once 
+
+an array is used because it is not pre-\/defined how much L\+E\+D-\/matixes will be stacked next to each other and because we can\textquotesingle{}t return an array, we return the pointer to the first byte 
+\begin{DoxyParams}{Parameters}
+{\em y} & the Y coordinate of the row to get the bytes from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an pointer to the first byte out of the array of bytes that represents the row 
+\end{DoxyReturn}
+
+
+Definition at line 101 of file max7219.\+cpp.
+
+\mbox{\Hypertarget{classmax7219_ab63d56bdc1aa6f1fd2dd4290737d3303}\label{classmax7219_ab63d56bdc1aa6f1fd2dd4290737d3303}} 
+\index{max7219@{max7219}!send\+Data@{send\+Data}}
+\index{send\+Data@{send\+Data}!max7219@{max7219}}
+\subsubsection{\texorpdfstring{send\+Data()}{sendData()}}
+{\footnotesize\ttfamily void max7219\+::send\+Data (\begin{DoxyParamCaption}\item[{uint\+\_\+fast8\+\_\+t}]{address,  }\item[{uint\+\_\+fast8\+\_\+t}]{d }\end{DoxyParamCaption})}
+
+
+
+sends 2 bytes of data to all connected L\+E\+D-\/matixes at the same time 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & the first byte, represents the address of the register to set, only the last 4 bits are used, but all 8 bits are sent \\
+\hline
+{\em d} & the second byte, represents the data to save in the register \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 12 of file max7219.\+cpp.
+
+\mbox{\Hypertarget{classmax7219_a7f1ed36b8de02c39eb7cdbdd6348ae8a}\label{classmax7219_a7f1ed36b8de02c39eb7cdbdd6348ae8a}} 
+\index{max7219@{max7219}!set\+Pixel@{set\+Pixel}}
+\index{set\+Pixel@{set\+Pixel}!max7219@{max7219}}
+\subsubsection{\texorpdfstring{set\+Pixel()}{setPixel()}}
+{\footnotesize\ttfamily void max7219\+::set\+Pixel (\begin{DoxyParamCaption}\item[{unsigned int}]{x,  }\item[{unsigned int}]{y,  }\item[{const bool}]{b }\end{DoxyParamCaption})}
+
+
+
+sets the state of an pixel 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the X coordinate of the pixel to set \\
+\hline
+{\em y} & the Y coordinate of the pixel to set \\
+\hline
+{\em b} & the state to set the pixel to (on=true, off=false) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file max7219.\+cpp.
+
+\mbox{\Hypertarget{classmax7219_a87ca725fb912b4f6c4093bc29d89046b}\label{classmax7219_a87ca725fb912b4f6c4093bc29d89046b}} 
+\index{max7219@{max7219}!set\+Row@{set\+Row}}
+\index{set\+Row@{set\+Row}!max7219@{max7219}}
+\subsubsection{\texorpdfstring{set\+Row()}{setRow()}}
+{\footnotesize\ttfamily void max7219\+::set\+Row (\begin{DoxyParamCaption}\item[{unsigned int}]{y,  }\item[{const uint8\+\_\+t}]{data\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+sets an whole row at once 
+
+an array is used because it is not pre-\/defined how much L\+E\+D-\/matixes will be stacked next to each other 
+\begin{DoxyParams}{Parameters}
+{\em y} & the Y coordinate of the row to set \\
+\hline
+{\em data} & the bytes to set the row to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 78 of file max7219.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+library/\mbox{\hyperlink{max7219_8hpp}{max7219.\+hpp}}\item 
+library/\mbox{\hyperlink{max7219_8cpp}{max7219.\+cpp}}\end{DoxyCompactItemize}

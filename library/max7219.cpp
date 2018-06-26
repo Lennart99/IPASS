@@ -2,7 +2,7 @@
 // Copyright (c) Lennart Jensen (lennart.jensen@student.hu.nl) 2018
 //
 // Distributed under the Boost Software License, Version 1.0.
-// (See accompanying file LICENSE_1_0.txt or copy at
+// (See accompanying file LICENSE.md or copy at
 // http://www.boost.org/LICENSE_1_0.txt)
 //
 // ==========================================================================
@@ -10,12 +10,12 @@
 #include "max7219.hpp"
 
 void max7219::sendData(
-	uint_fast8_t adress,
+	uint_fast8_t address,
 	uint_fast8_t d
 ) {
 	uint8_t buff[size*2];
 	for(unsigned int i = 0; i < size; i++) {
-		buff[i*2] = adress;
+		buff[i*2] = address;
 		buff[i*2+1] = d;
 	}
 	bus.write_and_read( sel, size*2, buff, nullptr );
@@ -24,6 +24,9 @@ void max7219::sendData(
 void max7219::clear() {
 	for(uint_fast8_t adr = 0x01; adr <= 0x08; adr++) {
 		sendData(adr, 0x00);
+	}
+	for(unsigned int i = 0; i<6; i++) {
+		screens[i] = screen();
 	}
 }
 
@@ -48,7 +51,7 @@ bool max7219::getPixel(unsigned int x, unsigned int y) {
 	return s.getPixel(x&0x07, y&0x07);
 }
 
-void max7219::setPixel(unsigned int x, unsigned int y, bool b) {
+void max7219::setPixel(unsigned int x, unsigned int y, const bool b) {
 	if(x >= size_x*8) x = (size_x*8)-1;
 	if(y >= size_y*8) y = (size_y*8)-1;
 	unsigned int x_screen = x >> 3;
@@ -72,7 +75,7 @@ void max7219::setPixel(unsigned int x, unsigned int y, bool b) {
 	bus.write_and_read( sel, size*2, out, nullptr );
 }
 
-void max7219::setRow(unsigned int y, uint8_t data[]) {
+void max7219::setRow(unsigned int y, const uint8_t data[]) {
 	if(y >= size_y*8) y = (size_y*8)-1;
 	unsigned int y_screen = y >> 3;
 	
