@@ -14,14 +14,14 @@
 
 class board {
 private:
-	max7219 & window;
+	max7219<2,3> & window;
 	
 	uint16_t getRow(unsigned int y);
 	
 	void setRow(unsigned int y, uint16_t d);
 	
 public:
-	board(max7219 & w): window(w)
+	board(max7219<2,3> & w): window(w)
 		 {}
 	
 	bool getPixel(unsigned int x, unsigned int y);

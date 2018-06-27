@@ -29,6 +29,7 @@
  * \n
  * due > 6 > 5 > 4 > 3 > 2 > 1
  */
+template<std::size_t _x, std::size_t _y>
 class max7219 {
 private:
 	hwlib::spi_bus & bus;
@@ -37,27 +38,50 @@ private:
 	const uint8_t size_x;
 	const uint8_t size_y;
 	const uint8_t size;
-	screen screens[6];
-	
-	void init();
-	
+	screen screens[_x*_y];
 public:
-	max7219(hwlib::spi_bus & bus, hwlib::pin_out & sel, uint8_t x, uint8_t y): bus(bus), sel(sel),size_x(x),size_y(y),size(x*y)
-	{
-		init();
-	}
-	
 	/**
 	 * @brief sends 2 bytes of data to all connected LED-matixes at the same time
 	 * @param address the first byte, represents the address of the register to set, only the last 4 bits are used, but all 8 bits are sent
 	 * @param d the second byte, represents the data to save in the register
 	 */
-	void sendData(uint_fast8_t address, uint_fast8_t d);
+
+	void sendData(const uint_fast8_t address, const uint_fast8_t d) {
+		uint8_t buff[size*2];
+		for(unsigned int i = 0; i < size; i++) {
+			buff[i*2] = address;
+			buff[i*2+1] = d;
+		}
+		bus.write_and_read( sel, size*2, buff, nullptr );
+	}
 	
 	/**
 	 * @brief clears all LED-matixes at the same time, by sending commands to set registers 1 till 9 to 0
 	 */
-	void clear();
+	void clear() {
+		for(uint_fast8_t adr = 0x01; adr <= 0x08; adr++) {
+			sendData(adr, 0x00);
+		}
+		for(unsigned int i = 0; i<6; i++) {
+			screens[i] = screen();
+		}
+	}
+private:
+	void init() {
+		sendData(0x0F, 0x00); // test-mode(off)
+		sendData(0x0C, 0x01); // shutdown-mode(off)
+		sendData(0x0A, 0x0F); // brightness(full)
+		sendData(0x0B, 0x07); // scan(all)
+		sendData(0x09, 0x00); // Decode-Mode(off)
+		
+		clear();
+	}
+	
+public:
+	max7219(hwlib::spi_bus & bus, hwlib::pin_out & sel/*, uint8_t x, uint8_t y*/): bus(bus), sel(sel),size_x(_x),size_y(_y),size(_x*_y)
+	{
+		init();
+	}	
 	
 	/**
 	 * @brief sets the state of an pixel
@@ -65,7 +89,29 @@ public:
 	 * @param y the Y coordinate of the pixel to set
 	 * @param b the state to set the pixel to (on=true, off=false)
 	 */
-	void setPixel(unsigned int x, unsigned int y, const bool b);
+	void setPixel(unsigned int x, unsigned int y, const bool b) {
+		if(x >= size_x*8) x = (size_x*8)-1;
+		if(y >= size_y*8) y = (size_y*8)-1;
+		unsigned int x_screen = x >> 3;
+		unsigned int y_screen = y >> 3;
+		
+		unsigned int s = size_x*y_screen+x_screen;
+		uint8_t d = screens[s].setPixel(x&0x07, y&0x07, b);
+		
+		uint8_t out[size*2];
+		
+		for(unsigned int i = 0; i < size; i++) {
+			if(i == s) {
+				out[i*2]  = (y&0x07)+1;
+				out[i*2+1]= d;
+			} else {
+				out[i*2]  = 0;
+				out[i*2+1]= 0;
+			}
+		}
+		
+		bus.write_and_read( sel, size*2, out, nullptr );
+	}
 	
 	/**
 	 * @brief gets the state of an pixel as an boolean
@@ -73,7 +119,16 @@ public:
 	 * @param y the Y coordinate of the pixel to get the state of
 	 * @return the state of the pixel (on=true, off=false)
 	 */
-	bool getPixel(unsigned int x, unsigned int y);
+	bool getPixel(unsigned int x, unsigned int y) {
+		if(x >= size_x*8) x = (size_x*8)-1;
+		if(y >= size_y*8) y = (size_y*8)-1;
+		unsigned int x_screen = x >> 3;
+		unsigned int y_screen = y >> 3;
+		
+		screen s = screens[size_x*y_screen+x_screen];
+		
+		return s.getPixel(x&0x07, y&0x07);
+	}
 	
 	/**
 	 * @brief sets an whole row at once
@@ -81,7 +136,28 @@ public:
 	 * @param y the Y coordinate of the row to set
 	 * @param data the bytes to set the row to
 	 */
-	void setRow(unsigned int y, const uint8_t data[]);
+	void setRow(unsigned int y, const uint8_t data[]) {
+		if(y >= size_y*8) y = (size_y*8)-1;
+		unsigned int y_screen = y >> 3;
+		
+		unsigned int offset = size_x*y_screen;
+		
+		uint8_t out[size*2];
+		
+		for(unsigned int i = 0; i < size; i++) {
+			out[i*2]  = 0;
+			out[i*2+1]= 0;
+		}
+		
+		for(unsigned int x = 0; x < size_x; x++) {
+				uint8_t d = data[x];
+				screens[x+offset].setRow(y&0x07, d);
+				out[(x+offset)*2]  = (y&0x07)+1;
+				out[(x+offset)*2+1]= d;
+		}
+		
+		bus.write_and_read( sel, size*2, out, nullptr );
+	}
 	
 	/**
 	 * @brief gets an whole row at once
@@ -90,7 +166,16 @@ public:
 	 * @param y the Y coordinate of the row to get the bytes from
 	 * @return an pointer to the first byte out of the array of bytes that represents the row
 	 */
-	uint8_t * getRow(unsigned int y);
+	uint8_t * getRow(unsigned int y) {
+		unsigned int offset = (y >> 3) * size_x;
+		uint8_t out[size_x];
+		for(unsigned int x = 0; x < size_x; x++) {
+			out[x] = screens[x+offset].getRow(y&0x07);
+		}
+		
+		uint8_t * point = &out[0];
+		return point;
+	}
 		
 }; // class max7219
 
