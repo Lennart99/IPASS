@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>max7219_library: max7219 Class Reference</title>
+<title>max7219_library: max7219&lt; _x, _y &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -65,7 +65,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classmax7219-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">max7219 Class Reference</div>  </div>
+<div class="title">max7219&lt; _x, _y &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -76,29 +76,32 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a892f1c436090d79718d264e3f8fe0029"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#a892f1c436090d79718d264e3f8fe0029">max7219</a> (hwlib::spi_bus &amp;bus, hwlib::pin_out &amp;sel, uint8_t x, uint8_t y)</td></tr>
-<tr class="separator:a892f1c436090d79718d264e3f8fe0029"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab63d56bdc1aa6f1fd2dd4290737d3303"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#ab63d56bdc1aa6f1fd2dd4290737d3303">sendData</a> (uint_fast8_t address, uint_fast8_t d)</td></tr>
-<tr class="memdesc:ab63d56bdc1aa6f1fd2dd4290737d3303"><td class="mdescLeft">&#160;</td><td class="mdescRight">sends 2 bytes of data to all connected LED-matixes at the same time  <a href="#ab63d56bdc1aa6f1fd2dd4290737d3303">More...</a><br /></td></tr>
-<tr class="separator:ab63d56bdc1aa6f1fd2dd4290737d3303"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a285fdbbb7c29dcaa10634ac6756d7b49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#a285fdbbb7c29dcaa10634ac6756d7b49">clear</a> ()</td></tr>
-<tr class="memdesc:a285fdbbb7c29dcaa10634ac6756d7b49"><td class="mdescLeft">&#160;</td><td class="mdescRight">clears all LED-matixes at the same time, by sending commands to set registers 1 till 9 to 0  <a href="#a285fdbbb7c29dcaa10634ac6756d7b49">More...</a><br /></td></tr>
-<tr class="separator:a285fdbbb7c29dcaa10634ac6756d7b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f1ed36b8de02c39eb7cdbdd6348ae8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#a7f1ed36b8de02c39eb7cdbdd6348ae8a">setPixel</a> (unsigned int x, unsigned int y, const bool b)</td></tr>
-<tr class="memdesc:a7f1ed36b8de02c39eb7cdbdd6348ae8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the state of an pixel  <a href="#a7f1ed36b8de02c39eb7cdbdd6348ae8a">More...</a><br /></td></tr>
-<tr class="separator:a7f1ed36b8de02c39eb7cdbdd6348ae8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50efeaec89dc19034359967de0c5fe97"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#a50efeaec89dc19034359967de0c5fe97">getPixel</a> (unsigned int x, unsigned int y)</td></tr>
-<tr class="memdesc:a50efeaec89dc19034359967de0c5fe97"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the state of an pixel as an boolean  <a href="#a50efeaec89dc19034359967de0c5fe97">More...</a><br /></td></tr>
-<tr class="separator:a50efeaec89dc19034359967de0c5fe97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87ca725fb912b4f6c4093bc29d89046b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#a87ca725fb912b4f6c4093bc29d89046b">setRow</a> (unsigned int y, const uint8_t data[])</td></tr>
-<tr class="memdesc:a87ca725fb912b4f6c4093bc29d89046b"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets an whole row at once  <a href="#a87ca725fb912b4f6c4093bc29d89046b">More...</a><br /></td></tr>
-<tr class="separator:a87ca725fb912b4f6c4093bc29d89046b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f9339f854dea8c0499dbfc4785fc9e2"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#a0f9339f854dea8c0499dbfc4785fc9e2">getRow</a> (unsigned int y)</td></tr>
-<tr class="memdesc:a0f9339f854dea8c0499dbfc4785fc9e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets an whole row at once  <a href="#a0f9339f854dea8c0499dbfc4785fc9e2">More...</a><br /></td></tr>
-<tr class="separator:a0f9339f854dea8c0499dbfc4785fc9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a4ed4fb055b10180d4d35d9b3ccd764"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#a1a4ed4fb055b10180d4d35d9b3ccd764">sendData</a> (const uint_fast8_t address, const uint_fast8_t d)</td></tr>
+<tr class="memdesc:a1a4ed4fb055b10180d4d35d9b3ccd764"><td class="mdescLeft">&#160;</td><td class="mdescRight">sends 2 bytes of data to all connected LED-matixes at the same time  <a href="#a1a4ed4fb055b10180d4d35d9b3ccd764">More...</a><br /></td></tr>
+<tr class="separator:a1a4ed4fb055b10180d4d35d9b3ccd764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51d0384d961359235b9a159f4d1a3752"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#a51d0384d961359235b9a159f4d1a3752">clear</a> ()</td></tr>
+<tr class="memdesc:a51d0384d961359235b9a159f4d1a3752"><td class="mdescLeft">&#160;</td><td class="mdescRight">clears all LED-matixes at the same time, by sending commands to set registers 1 till 9 to 0  <a href="#a51d0384d961359235b9a159f4d1a3752">More...</a><br /></td></tr>
+<tr class="separator:a51d0384d961359235b9a159f4d1a3752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ed4b1bcde10c1d92c90337f9a54540"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#aa0ed4b1bcde10c1d92c90337f9a54540">max7219</a> (hwlib::spi_bus &amp;bus, hwlib::pin_out &amp;sel)</td></tr>
+<tr class="separator:aa0ed4b1bcde10c1d92c90337f9a54540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85605fc742c9179bb4711c9826c2ecb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#a85605fc742c9179bb4711c9826c2ecb5">setPixel</a> (unsigned int x, unsigned int y, const bool b)</td></tr>
+<tr class="memdesc:a85605fc742c9179bb4711c9826c2ecb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the state of an pixel  <a href="#a85605fc742c9179bb4711c9826c2ecb5">More...</a><br /></td></tr>
+<tr class="separator:a85605fc742c9179bb4711c9826c2ecb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc3ca9df2c623b75596c90c32328c73"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#a9bc3ca9df2c623b75596c90c32328c73">getPixel</a> (unsigned int x, unsigned int y)</td></tr>
+<tr class="memdesc:a9bc3ca9df2c623b75596c90c32328c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the state of an pixel as an boolean  <a href="#a9bc3ca9df2c623b75596c90c32328c73">More...</a><br /></td></tr>
+<tr class="separator:a9bc3ca9df2c623b75596c90c32328c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad77f11c4362f850ea2ea56816ac9a784"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#ad77f11c4362f850ea2ea56816ac9a784">setRow</a> (unsigned int y, const uint8_t data[])</td></tr>
+<tr class="memdesc:ad77f11c4362f850ea2ea56816ac9a784"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets an whole row at once  <a href="#ad77f11c4362f850ea2ea56816ac9a784">More...</a><br /></td></tr>
+<tr class="separator:ad77f11c4362f850ea2ea56816ac9a784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada812c3eed0a655300d2f3914910f103"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmax7219.html#ada812c3eed0a655300d2f3914910f103">getRow</a> (unsigned int y)</td></tr>
+<tr class="memdesc:ada812c3eed0a655300d2f3914910f103"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets an whole row at once  <a href="#ada812c3eed0a655300d2f3914910f103">More...</a><br /></td></tr>
+<tr class="separator:ada812c3eed0a655300d2f3914910f103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>class to control multiple <a class="el" href="classmax7219.html" title="class to control multiple max7219 LED-matixes as one display ">max7219</a> LED-matixes as one display </p>
+<div class="textblock"><h3>template&lt;std::size_t _x, std::size_t _y&gt;<br />
+class max7219&lt; _x, _y &gt;</h3>
+
+<p>class to control multiple <a class="el" href="classmax7219.html" title="class to control multiple max7219 LED-matixes as one display ">max7219</a> LED-matixes as one display </p>
 <p>The pixels are saved in separate screen instances for every <a class="el" href="classmax7219.html" title="class to control multiple max7219 LED-matixes as one display ">max7219</a> <br />
 for an configuration of 2x3 matrixes it should be wired as folows: <br />
 configuration:<br />
@@ -108,19 +111,21 @@ configuration:<br />
 <br />
 due &gt; 6 &gt; 5 &gt; 4 &gt; 3 &gt; 2 &gt; 1 </p>
 
-<p class="definition">Definition at line <a class="el" href="max7219_8hpp_source.html#l00032">32</a> of file <a class="el" href="max7219_8hpp_source.html">max7219.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="max7219_8hpp_source.html#l00033">33</a> of file <a class="el" href="max7219_8hpp_source.html">max7219.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a892f1c436090d79718d264e3f8fe0029"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a892f1c436090d79718d264e3f8fe0029">&#9670;&nbsp;</a></span>max7219()</h2>
+<a id="aa0ed4b1bcde10c1d92c90337f9a54540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ed4b1bcde10c1d92c90337f9a54540">&#9670;&nbsp;</a></span>max7219()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t _x, std::size_t _y&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">max7219::max7219 </td>
+          <td class="memname"><a class="el" href="classmax7219.html">max7219</a>&lt; _x, _y &gt;::<a class="el" href="classmax7219.html">max7219</a> </td>
           <td>(</td>
           <td class="paramtype">hwlib::spi_bus &amp;&#160;</td>
           <td class="paramname"><em>bus</em>, </td>
@@ -129,18 +134,78 @@ due &gt; 6 &gt; 5 &gt; 4 &gt; 3 &gt; 2 &gt; 1 </p>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">hwlib::pin_out &amp;&#160;</td>
-          <td class="paramname"><em>sel</em>, </td>
+          <td class="paramname"><em>sel</em>&#160;</td>
         </tr>
         <tr>
-          <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="max7219_8hpp_source.html#l00080">80</a> of file <a class="el" href="max7219_8hpp_source.html">max7219.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a51d0384d961359235b9a159f4d1a3752"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d0384d961359235b9a159f4d1a3752">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t _x, std::size_t _y&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmax7219.html">max7219</a>&lt; _x, _y &gt;::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>clears all LED-matixes at the same time, by sending commands to set registers 1 till 9 to 0 </p>
+
+<p class="definition">Definition at line <a class="el" href="max7219_8hpp_source.html#l00060">60</a> of file <a class="el" href="max7219_8hpp_source.html">max7219.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a9bc3ca9df2c623b75596c90c32328c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bc3ca9df2c623b75596c90c32328c73">&#9670;&nbsp;</a></span>getPixel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t _x, std::size_t _y&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classmax7219.html">max7219</a>&lt; _x, _y &gt;::getPixel </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -156,58 +221,6 @@ due &gt; 6 &gt; 5 &gt; 4 &gt; 3 &gt; 2 &gt; 1 </p>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="max7219_8hpp_source.html#l00045">45</a> of file <a class="el" href="max7219_8hpp_source.html">max7219.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a285fdbbb7c29dcaa10634ac6756d7b49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a285fdbbb7c29dcaa10634ac6756d7b49">&#9670;&nbsp;</a></span>clear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void max7219::clear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>clears all LED-matixes at the same time, by sending commands to set registers 1 till 9 to 0 </p>
-
-<p class="definition">Definition at line <a class="el" href="max7219_8cpp_source.html#l00024">24</a> of file <a class="el" href="max7219_8cpp_source.html">max7219.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a50efeaec89dc19034359967de0c5fe97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50efeaec89dc19034359967de0c5fe97">&#9670;&nbsp;</a></span>getPixel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool max7219::getPixel </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
 <p>gets the state of an pixel as an boolean </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -218,24 +231,34 @@ due &gt; 6 &gt; 5 &gt; 4 &gt; 3 &gt; 2 &gt; 1 </p>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the state of the pixel (on=true, off=false) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="max7219_8cpp_source.html#l00043">43</a> of file <a class="el" href="max7219_8cpp_source.html">max7219.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="max7219_8hpp_source.html#l00121">121</a> of file <a class="el" href="max7219_8hpp_source.html">max7219.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a0f9339f854dea8c0499dbfc4785fc9e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f9339f854dea8c0499dbfc4785fc9e2">&#9670;&nbsp;</a></span>getRow()</h2>
+<a id="ada812c3eed0a655300d2f3914910f103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada812c3eed0a655300d2f3914910f103">&#9670;&nbsp;</a></span>getRow()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t _x, std::size_t _y&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t * max7219::getRow </td>
+          <td class="memname">uint8_t* <a class="el" href="classmax7219.html">max7219</a>&lt; _x, _y &gt;::getRow </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>y</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>gets an whole row at once </p>
@@ -247,26 +270,31 @@ due &gt; 6 &gt; 5 &gt; 4 &gt; 3 &gt; 2 &gt; 1 </p>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>an pointer to the first byte out of the array of bytes that represents the row </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="max7219_8cpp_source.html#l00101">101</a> of file <a class="el" href="max7219_8cpp_source.html">max7219.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="max7219_8hpp_source.html#l00167">167</a> of file <a class="el" href="max7219_8hpp_source.html">max7219.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ab63d56bdc1aa6f1fd2dd4290737d3303"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab63d56bdc1aa6f1fd2dd4290737d3303">&#9670;&nbsp;</a></span>sendData()</h2>
+<a id="a1a4ed4fb055b10180d4d35d9b3ccd764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a4ed4fb055b10180d4d35d9b3ccd764">&#9670;&nbsp;</a></span>sendData()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t _x, std::size_t _y&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void max7219::sendData </td>
+          <td class="memname">void <a class="el" href="classmax7219.html">max7219</a>&lt; _x, _y &gt;::sendData </td>
           <td>(</td>
-          <td class="paramtype">uint_fast8_t&#160;</td>
+          <td class="paramtype">const uint_fast8_t&#160;</td>
           <td class="paramname"><em>address</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint_fast8_t&#160;</td>
+          <td class="paramtype">const uint_fast8_t&#160;</td>
           <td class="paramname"><em>d</em>&#160;</td>
         </tr>
         <tr>
@@ -275,6 +303,11 @@ due &gt; 6 &gt; 5 &gt; 4 &gt; 3 &gt; 2 &gt; 1 </p>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>sends 2 bytes of data to all connected LED-matixes at the same time </p>
@@ -286,18 +319,23 @@ due &gt; 6 &gt; 5 &gt; 4 &gt; 3 &gt; 2 &gt; 1 </p>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="max7219_8cpp_source.html#l00012">12</a> of file <a class="el" href="max7219_8cpp_source.html">max7219.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="max7219_8hpp_source.html#l00048">48</a> of file <a class="el" href="max7219_8hpp_source.html">max7219.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a7f1ed36b8de02c39eb7cdbdd6348ae8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f1ed36b8de02c39eb7cdbdd6348ae8a">&#9670;&nbsp;</a></span>setPixel()</h2>
+<a id="a85605fc742c9179bb4711c9826c2ecb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85605fc742c9179bb4711c9826c2ecb5">&#9670;&nbsp;</a></span>setPixel()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t _x, std::size_t _y&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void max7219::setPixel </td>
+          <td class="memname">void <a class="el" href="classmax7219.html">max7219</a>&lt; _x, _y &gt;::setPixel </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -320,6 +358,11 @@ due &gt; 6 &gt; 5 &gt; 4 &gt; 3 &gt; 2 &gt; 1 </p>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>sets the state of an pixel </p>
@@ -332,18 +375,23 @@ due &gt; 6 &gt; 5 &gt; 4 &gt; 3 &gt; 2 &gt; 1 </p>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="max7219_8cpp_source.html#l00054">54</a> of file <a class="el" href="max7219_8cpp_source.html">max7219.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="max7219_8hpp_source.html#l00091">91</a> of file <a class="el" href="max7219_8hpp_source.html">max7219.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a87ca725fb912b4f6c4093bc29d89046b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87ca725fb912b4f6c4093bc29d89046b">&#9670;&nbsp;</a></span>setRow()</h2>
+<a id="ad77f11c4362f850ea2ea56816ac9a784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad77f11c4362f850ea2ea56816ac9a784">&#9670;&nbsp;</a></span>setRow()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t _x, std::size_t _y&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void max7219::setRow </td>
+          <td class="memname">void <a class="el" href="classmax7219.html">max7219</a>&lt; _x, _y &gt;::setRow </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>y</em>, </td>
@@ -360,6 +408,11 @@ due &gt; 6 &gt; 5 &gt; 4 &gt; 3 &gt; 2 &gt; 1 </p>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>sets an whole row at once </p>
@@ -371,13 +424,12 @@ due &gt; 6 &gt; 5 &gt; 4 &gt; 3 &gt; 2 &gt; 1 </p>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="max7219_8cpp_source.html#l00078">78</a> of file <a class="el" href="max7219_8cpp_source.html">max7219.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="max7219_8hpp_source.html#l00138">138</a> of file <a class="el" href="max7219_8hpp_source.html">max7219.hpp</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>library/<a class="el" href="max7219_8hpp_source.html">max7219.hpp</a></li>
-<li>library/<a class="el" href="max7219_8cpp_source.html">max7219.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

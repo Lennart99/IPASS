@@ -55,7 +55,7 @@ TEST_CASE( "fake_spi" ) {
 TEST_CASE( "max7219, init" ) {
 	fake_spi_bus spi;
 	fake_pin_out out;
-	auto w = max7219<2,3>(spi, out);
+	auto w = matrix::max7219<2,3>(spi, out);
 	
 	REQUIRE(out.getN_pulses() == (/*init*/5+/*clear*/8));
 	
@@ -79,7 +79,7 @@ TEST_CASE( "max7219, init" ) {
 TEST_CASE( "max7219, setpixel, (0,0)" ) {
 	fake_spi_bus spi;
 	fake_pin_out out;
-	auto w = max7219<2,2>(spi, out);
+	auto w = matrix::max7219<2,2>(spi, out);
 	
 	w.setPixel(0,0,true);
 	REQUIRE(out.getN_pulses() == (/*init*/5+/*clear*/8+/*setpixel*/1));
@@ -100,7 +100,7 @@ TEST_CASE( "max7219, setpixel, (0,0)" ) {
 TEST_CASE( "max7219 of (2,2), setpixel, (8,8)" ) {
 	fake_spi_bus spi;
 	fake_pin_out out;
-	auto w = max7219<2,2>(spi, out);
+	auto w = matrix::max7219<2,2>(spi, out);
 	
 	w.setPixel(8,8,true);
 	
@@ -120,7 +120,7 @@ TEST_CASE( "max7219 of (2,2), setpixel, (8,8)" ) {
 TEST_CASE( "max7219, getpixel, (0,0)" ) {
 	fake_spi_bus spi;
 	fake_pin_out out;
-	auto w = max7219<2,2>(spi, out);
+	auto w = matrix::max7219<2,2>(spi, out);
 	
 	w.setPixel(0,0,true);
 	REQUIRE(w.getPixel(0,0) == true);
@@ -135,7 +135,7 @@ TEST_CASE( "max7219, getpixel, (0,0)" ) {
 TEST_CASE( "max7219 of (2,2), setRow(8,{255,255})" ) {
 	fake_spi_bus spi;
 	fake_pin_out out;
-	auto w = max7219<2,2>(spi, out);
+	auto w = matrix::max7219<2,2>(spi, out);
 	
 	uint8_t in[2] = {0xFF, 0xFF};
 	w.setRow(8,in);
@@ -157,7 +157,7 @@ TEST_CASE( "max7219 of (2,2), setRow(8,{255,255})" ) {
 TEST_CASE( "max7219 of (2,2), setRow(8,{0,0})" ) {
 	fake_spi_bus spi;
 	fake_pin_out out;
-	auto w = max7219<2,2>(spi, out);
+	auto w = matrix::max7219<2,2>(spi, out);
 	
 	uint8_t in[2] = {0xFF, 0xFF};
 	w.setRow(8,in);
@@ -182,7 +182,7 @@ TEST_CASE( "max7219 of (2,2), setRow(8,{0,0})" ) {
 TEST_CASE( "max7219 of (2,2), getRow" ) {
 	fake_spi_bus spi;
 	fake_pin_out out;
-	auto w = max7219<2,2>(spi, out);
+	auto w = matrix::max7219<2,2>(spi, out);
 	
 	uint8_t in[2] = {0xFF, 0xFF};
 	w.setRow(8,in);

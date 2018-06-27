@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['main',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['max7219',['max7219',['../classmax7219.html#a892f1c436090d79718d264e3f8fe0029',1,'max7219']]]
+  ['getpixel',['getPixel',['../classmatrix_1_1max7219.html#a3bd74301ca921fbafe39cb516901dca2',1,'matrix::max7219::getPixel()'],['../classmatrix_1_1screen.html#a79b2674573b2252b70eaf1f6448f58fd',1,'matrix::screen::getPixel()']]],
+  ['getrow',['getRow',['../classmatrix_1_1max7219.html#a48ff4d31e9bc3fd93be73406830e3d62',1,'matrix::max7219::getRow()'],['../classmatrix_1_1screen.html#afead7e5faa463cbcef0b9fb0917be60c',1,'matrix::screen::getRow()']]]
 ];

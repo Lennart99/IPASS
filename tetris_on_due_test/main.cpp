@@ -19,7 +19,7 @@ int main() {
 	auto clk = hwlib::target::pin_out(hwlib::target::pins::d10);
 	
 	auto spi = hwlib::spi_bus_bit_banged_sclk_mosi_miso(clk, din, hwlib::pin_in_dummy);
-	auto w = max7219<2,3>(spi, cs);
+	auto w = matrix::max7219<2,3>(spi, cs);
 	
 	// setup test board
 	uint8_t out[2];

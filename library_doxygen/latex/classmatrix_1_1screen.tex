@@ -1,0 +1,148 @@
+\hypertarget{classmatrix_1_1screen}{}\section{matrix\+:\+:screen Class Reference}
+\label{classmatrix_1_1screen}\index{matrix\+::screen@{matrix\+::screen}}
+
+
+class to save the pixels of one L\+E\+D-\/matix  
+
+
+
+
+{\ttfamily \#include $<$screen.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmatrix_1_1screen_af07c83f7aa51a1f7f60abbdf3bd95986}{screen}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classmatrix_1_1screen_a5559c58b3ed547d37130db5de06fd4fe}{set\+Pixel}} (unsigned int x, unsigned int y, const bool b)
+\begin{DoxyCompactList}\small\item\em sets the state of an pixel \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmatrix_1_1screen_a79b2674573b2252b70eaf1f6448f58fd}{get\+Pixel}} (unsigned int x, unsigned int y)
+\begin{DoxyCompactList}\small\item\em gets the state of an pixel \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmatrix_1_1screen_aa4c8480453c02c24d06f28e8891c91ed}{set\+Row}} (unsigned int y, const uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em sets an whole row at once \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classmatrix_1_1screen_afead7e5faa463cbcef0b9fb0917be60c}{get\+Row}} (unsigned int y)
+\begin{DoxyCompactList}\small\item\em gets an whole row at once \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+class to save the pixels of one L\+E\+D-\/matix 
+
+this class is used by the \mbox{\hyperlink{classmatrix_1_1max7219}{max7219}} class to save the pixels of the L\+E\+D-\/matixes 
+
+Definition at line 22 of file screen.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmatrix_1_1screen_af07c83f7aa51a1f7f60abbdf3bd95986}\label{classmatrix_1_1screen_af07c83f7aa51a1f7f60abbdf3bd95986}} 
+\index{matrix\+::screen@{matrix\+::screen}!screen@{screen}}
+\index{screen@{screen}!matrix\+::screen@{matrix\+::screen}}
+\subsubsection{\texorpdfstring{screen()}{screen()}}
+{\footnotesize\ttfamily matrix\+::screen\+::screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 36 of file screen.\+hpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmatrix_1_1screen_a79b2674573b2252b70eaf1f6448f58fd}\label{classmatrix_1_1screen_a79b2674573b2252b70eaf1f6448f58fd}} 
+\index{matrix\+::screen@{matrix\+::screen}!get\+Pixel@{get\+Pixel}}
+\index{get\+Pixel@{get\+Pixel}!matrix\+::screen@{matrix\+::screen}}
+\subsubsection{\texorpdfstring{get\+Pixel()}{getPixel()}}
+{\footnotesize\ttfamily bool matrix\+::screen\+::get\+Pixel (\begin{DoxyParamCaption}\item[{unsigned int}]{x,  }\item[{unsigned int}]{y }\end{DoxyParamCaption})}
+
+
+
+gets the state of an pixel 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the X coordinate of the pixel in this matrix(must be lower then 8) \\
+\hline
+{\em y} & the Y coordinate of the pixel in this matrix(must be lower then 8) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the state of the pixel (on=true, off=false) 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file screen.\+cpp.
+
+\mbox{\Hypertarget{classmatrix_1_1screen_afead7e5faa463cbcef0b9fb0917be60c}\label{classmatrix_1_1screen_afead7e5faa463cbcef0b9fb0917be60c}} 
+\index{matrix\+::screen@{matrix\+::screen}!get\+Row@{get\+Row}}
+\index{get\+Row@{get\+Row}!matrix\+::screen@{matrix\+::screen}}
+\subsubsection{\texorpdfstring{get\+Row()}{getRow()}}
+{\footnotesize\ttfamily uint8\+\_\+t matrix\+::screen\+::get\+Row (\begin{DoxyParamCaption}\item[{unsigned int}]{y }\end{DoxyParamCaption})}
+
+
+
+gets an whole row at once 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & the Y coordinate of the row in this matrix(must be lower then 8) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the byte that represents the row 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file screen.\+cpp.
+
+\mbox{\Hypertarget{classmatrix_1_1screen_a5559c58b3ed547d37130db5de06fd4fe}\label{classmatrix_1_1screen_a5559c58b3ed547d37130db5de06fd4fe}} 
+\index{matrix\+::screen@{matrix\+::screen}!set\+Pixel@{set\+Pixel}}
+\index{set\+Pixel@{set\+Pixel}!matrix\+::screen@{matrix\+::screen}}
+\subsubsection{\texorpdfstring{set\+Pixel()}{setPixel()}}
+{\footnotesize\ttfamily uint8\+\_\+t matrix\+::screen\+::set\+Pixel (\begin{DoxyParamCaption}\item[{unsigned int}]{x,  }\item[{unsigned int}]{y,  }\item[{const bool}]{b }\end{DoxyParamCaption})}
+
+
+
+sets the state of an pixel 
+
+this doesn\textquotesingle{}t effect the hardware in any way, it only changes the data in the array the hardware is handled by the \mbox{\hyperlink{classmatrix_1_1max7219}{max7219}} class 
+\begin{DoxyParams}{Parameters}
+{\em x} & the X coordinate of the pixel in this matrix(must be lower then 8) \\
+\hline
+{\em y} & the Y coordinate of the pixel in this matrix(must be lower then 8) \\
+\hline
+{\em b} & the state to set the pixel to (on=true, off=false) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the full row, this way we can send the correct data to the matrixes without the need to cast \mbox{\hyperlink{classmatrix_1_1screen_afead7e5faa463cbcef0b9fb0917be60c}{get\+Row()}} 
+\end{DoxyReturn}
+
+
+Definition at line 12 of file screen.\+cpp.
+
+\mbox{\Hypertarget{classmatrix_1_1screen_aa4c8480453c02c24d06f28e8891c91ed}\label{classmatrix_1_1screen_aa4c8480453c02c24d06f28e8891c91ed}} 
+\index{matrix\+::screen@{matrix\+::screen}!set\+Row@{set\+Row}}
+\index{set\+Row@{set\+Row}!matrix\+::screen@{matrix\+::screen}}
+\subsubsection{\texorpdfstring{set\+Row()}{setRow()}}
+{\footnotesize\ttfamily void matrix\+::screen\+::set\+Row (\begin{DoxyParamCaption}\item[{unsigned int}]{y,  }\item[{const uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+sets an whole row at once 
+
+this doesn\textquotesingle{}t effect the hardware in any way, it only changes the data in the array the hardware is handled by the \mbox{\hyperlink{classmatrix_1_1max7219}{max7219}} class 
+\begin{DoxyParams}{Parameters}
+{\em y} & the Y coordinate of the row in this matrix(must be lower then 8) \\
+\hline
+{\em data} & the byte to set the row to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file screen.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+library/\mbox{\hyperlink{screen_8hpp}{screen.\+hpp}}\item 
+library/\mbox{\hyperlink{screen_8cpp}{screen.\+cpp}}\end{DoxyCompactItemize}

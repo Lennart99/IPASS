@@ -19,7 +19,7 @@ int main() {
 	
 	auto spi = hwlib::spi_bus_bit_banged_sclk_mosi_miso(clk, din, hwlib::pin_in_dummy);
 	
-	auto w = max7219<2,3>(spi, cs);
+	auto w = matrix::max7219<2,3>(spi, cs);
 	
 	auto left  = hwlib::target::pin_in(hwlib::target::pins::d2);
 	auto right = hwlib::target::pin_in(hwlib::target::pins::d3);

@@ -9,7 +9,7 @@
 
 #include "screen.hpp"
 
-uint8_t screen::setPixel(unsigned int x, unsigned int y, const bool b) {
+uint8_t matrix::screen::setPixel(unsigned int x, unsigned int y, const bool b) {
 	if(x > 0x07) x = x&0x07;
 	if(y > 0x07) y = y&0x07;
 	
@@ -24,7 +24,7 @@ uint8_t screen::setPixel(unsigned int x, unsigned int y, const bool b) {
 	return d;
 }
 
-bool screen::getPixel(unsigned int x, unsigned int y) {
+bool matrix::screen::getPixel(unsigned int x, unsigned int y) {
 	if(x > 0x07) x = x&0x07;
 	if(y > 0x07) y = y&0x07;
 	
@@ -35,12 +35,12 @@ bool screen::getPixel(unsigned int x, unsigned int y) {
 	return d != 0;
 }
 
-void screen::setRow(unsigned int y, const uint8_t d) {
+void matrix::screen::setRow(unsigned int y, const uint8_t d) {
 	if(y > 0x07) y = y&0x07;
 	data[y] = d;
 }
 
-uint8_t screen::getRow(unsigned int y) {
+uint8_t matrix::screen::getRow(unsigned int y) {
 	if(y > 0x07) y = y&0x07;
 	
 	return data[y];

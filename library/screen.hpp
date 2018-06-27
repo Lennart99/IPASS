@@ -12,6 +12,8 @@
 
 #include <stdint.h>
 
+namespace matrix {
+
 /**
  * @class screen
  * @brief class to save the pixels of one LED-matix
@@ -70,5 +72,7 @@ public:
 	uint8_t getRow(unsigned int y);
 		
 }; // class screen
+
+}; //namespace matrix
 
 #endif // SCREEN_H

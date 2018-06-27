@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['screen',['screen',['../classscreen.html',1,'']]]
+  ['screen',['screen',['../classmatrix_1_1screen.html',1,'matrix']]]
 ];

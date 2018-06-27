@@ -8,3 +8,5 @@
 // ==========================================================================
 
 #include "max7219.hpp"
+
+// the implementation of the functions is in the header, because I didn't got the template to work with the implementation in the CPP file

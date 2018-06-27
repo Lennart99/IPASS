@@ -25,7 +25,7 @@ private:
 	bool tryToMoveDown();
 	
 public:
-	game(max7219<2,3> & w, hwlib::pin_in & l, hwlib::pin_in & r, hwlib::pin_in & d): window(w),p(window),sw_left(l),sw_right(r),sw_down(d)
+	game(matrix::max7219<2,3> & w, hwlib::pin_in & l, hwlib::pin_in & r, hwlib::pin_in & d): window(w),p(window),sw_left(l),sw_right(r),sw_down(d)
 		 {}
 
 	void run();

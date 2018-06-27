@@ -7,8 +7,8 @@
 //
 // ==========================================================================
 
-// main file to make this visible as an separate project
 #include "max7219.hpp"
+
 int main() {
 	auto din = hwlib::target::pin_out(hwlib::target::pins::d12);
 	auto cs  = hwlib::target::pin_out(hwlib::target::pins::d11);
@@ -16,7 +16,7 @@ int main() {
 	
 	auto spi = hwlib::spi_bus_bit_banged_sclk_mosi_miso(clk, din, hwlib::pin_in_dummy);
 	
-	auto w = max7219<2,3>(spi, cs);
+	auto w = matrix::max7219<2,3>(spi, cs);
 	
 	w.setPixel(7, 0, true);
 	w.setPixel(8, 0, true);

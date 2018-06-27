@@ -14,6 +14,44 @@
 #include "hwlib.hpp"
 
 /**
+ * \mainpage
+ * \author Lennart Jensen (lennart.jensen@student.hu.nl)
+ * \version 1.0
+ * \copyright boost license
+ *
+ * -------------------------------------------------------------------------
+ *
+ * This library is created for the ipass project of year 2017-2018.
+ * With this library multiple MAX7219 matrixes can be used as one display.
+ * this library gives you the option to set independent pixels, or whole rows.
+ * As well sending data to all displays at the same time and clearing the whole display
+ *
+ * The entire library is written in C++ OO fashion with C++ 11.
+ * The library is dependent on hwlib (https://github.com/wovo/hwlib, © Wouter van Ooijen).
+ *
+ * GitHub: https://github.com/Lennart99/IPASS
+ */
+
+/**
+ * \page use Use
+ * For usage examples of the library, please see the
+ * demo on the github.
+ *
+ * The library is a layer between the presentation layer and the
+ * hardware layer. The library user is responsible for providing
+ * a hardware implementation for the spi port and the cs pin.
+ */
+
+/**
+ * \brief
+ * matrix namespace
+ * \details
+ * The matrix namespace contains the whole library.
+ */
+
+namespace matrix {
+
+/**
  * @class max7219
  * @brief
  * class to control multiple max7219 LED-matixes as one display
@@ -77,7 +115,7 @@ private:
 	}
 	
 public:
-	max7219(hwlib::spi_bus & bus, hwlib::pin_out & sel/*, uint8_t x, uint8_t y*/): bus(bus), sel(sel),size_x(_x),size_y(_y),size(_x*_y)
+	max7219(hwlib::spi_bus & bus, hwlib::pin_out & sel): bus(bus), sel(sel),size_x(_x),size_y(_y),size(_x*_y)
 	{
 		init();
 	}	
@@ -176,5 +214,7 @@ public:
 	}
 		
 }; // class max7219
+
+}; //namespace matrix
 
 #endif // MAX7219_H
