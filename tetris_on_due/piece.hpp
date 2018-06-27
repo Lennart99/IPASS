@@ -19,6 +19,9 @@ private:
 	uint8_t x;
 	uint8_t y;
 	
+	bool canBePlaced();
+	
+	bool canMoveDown();
 	bool canMoveLeft();
 	bool canMoveRight();
 	
@@ -26,17 +29,15 @@ private:
 	void remove();
 	
 public:
-	bool canBePlaced();
-	void place();
+	bool place();
 	
 	piece(board & w): window(w),x(0),y(0)
 		 {place();}
 	
-	bool canMoveDown();
 	
-	void moveLeft();
-	void moveRight();
-	void moveDown();
+	bool moveLeft();
+	bool moveRight();
+	bool moveDown();
 		
 }; // class piece
 

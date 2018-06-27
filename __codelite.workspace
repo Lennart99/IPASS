@@ -6,13 +6,13 @@
       <Project Name="library" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
-  <Project Name="tetris_on_due" Path="tetris_on_due/_codelite.project" Active="No"/>
+  <Project Name="tetris_on_due" Path="tetris_on_due/_codelite.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="tetris_on_due" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
-  <Project Name="tetris_on_due_test" Path="tetris_on_due_test/_codelite.project" Active="Yes"/>
+  <Project Name="tetris_on_due_test" Path="tetris_on_due_test/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="tetris_on_due_test" ConfigName="Release"/>

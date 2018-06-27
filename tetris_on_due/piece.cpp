@@ -47,28 +47,34 @@ bool piece::canMoveDown() {
 	}
 }
 
-void piece::moveLeft() {
+bool piece::moveLeft() {
 	if(canMoveLeft()) {
 		remove();
 		x--;
 		print();
+		return true;
 	}
+	return false;
 }
 
-void piece::moveRight() {
+bool piece::moveRight() {
 	if(canMoveRight()) {
 		remove();
 		x++;
 		print();
+		return true;
 	}
+	return false;
 }
 
-void piece::moveDown() {
+bool piece::moveDown() {
 	if(canMoveDown()) {
 		remove();
 		y++;
 		print();
+		return true;
 	}
+	return false;
 }
 
 bool piece::canBePlaced() {
@@ -83,11 +89,13 @@ bool piece::canBePlaced() {
 	}
 }
 
-void piece::place() {
-	//if(canBePlaced()) {
+bool piece::place() {
+	if(canBePlaced()) {
 		x = 7;
 		y = 0;
 		
 		print();
-	//}
+		return true;
+	}
+	return false;
 }
