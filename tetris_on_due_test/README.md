@@ -3,10 +3,10 @@
 To start of, you will need to build and upload this project to your arduino, this project uses the other projects for the most part.
 
 Then you will get an board that is partly filled:
-![alt text](screenshots/pict_1.jpg "this is the baord you will get")
+![alt text](pictures/pict_1.jpg "this is the baord you will get")
 
 the idea is to fill in the third and fourth line, which can be done by placing just one block.
-![alt text](screenshots/pict_2.jpg "put the block here")
+![alt text](pictures/pict_2.jpg "put the block here")
 
 Make sure that **ONLY** this two lines are removed by the system, when other lines are removed you should make sure to test this a second time by using the reset button on the arduino and placing the block again.
 
