@@ -16,3 +16,5 @@ If you are sure you have **not** created this bug youself, please create an new 
 
 I will try to fix bugs as soon as posible after they are discovered.
 When the bug is in your own code, try fixing it yourself, but of course you can always ask for help.
+
+And last but not least, just play an game of Tetris, it is the most easy way to test the application, and it is fun too :)
