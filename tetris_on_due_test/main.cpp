@@ -23,11 +23,21 @@ int main() {
 	
 	// setup test board
 	uint8_t out[2];
-	out[0] = 0;
-	out[1] = 0;
 	
+	out[0] = 0b1101'1011;
+	out[1] = 0b1101'1011;
 	w.setRow(23, out);
 	w.setRow(22, out);
+	
+	out[0] = 0b1111'0011;
+	out[1] = 0b1111'1111;
+	w.setRow(21, out);
+	w.setRow(20, out);
+	
+	out[0] = 0b1100'0000;
+	out[1] = 0b0110'0110;
+	w.setRow(19, out);
+	w.setRow(18, out);
 	
 	auto left  = hwlib::target::pin_in(hwlib::target::pins::d2);
 	auto right = hwlib::target::pin_in(hwlib::target::pins::d3);
