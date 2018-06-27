@@ -40,6 +40,7 @@ void board::setPixel(unsigned int x, unsigned int y, bool b) {
 void board::removeFullRows() {
 	for(unsigned int y = 0; y < 24; y++) {
 		if(getRow(y) == 0xFFFF) {// full row
+			setRow(0,0x00);
 			setRow(y, 0x00);
 			// shift everything down by one
 			for(unsigned int i = y; i > 0; i--) {
