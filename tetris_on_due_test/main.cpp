@@ -7,9 +7,12 @@
 //
 // ==========================================================================
 
-// main file to make this visible as an separate project
-#include "max7219.hpp"
+#include "../tetris_on_due/game.hpp"
+
 int main() {
+	// kill the watchdog
+	WDT->WDT_MR = WDT_MR_WDDIS;
+	
 	auto din = hwlib::target::pin_out(hwlib::target::pins::d12);
 	auto cs  = hwlib::target::pin_out(hwlib::target::pins::d11);
 	auto clk = hwlib::target::pin_out(hwlib::target::pins::d10);
@@ -18,8 +21,18 @@ int main() {
 	
 	auto w = max7219<2,3>(spi, cs);
 	
-	w.setPixel(7, 0, true);
-	w.setPixel(8, 0, true);
-	w.setPixel(7, 1, true);
-	w.setPixel(8, 1, true);
+	// setup test board
+	uint8_t out[2];
+	out[0] = 0;
+	out[1] = 0;
+	
+	w.setRow(23, out);
+	w.setRow(22, out);
+	
+	auto left  = hwlib::target::pin_in(hwlib::target::pins::d2);
+	auto right = hwlib::target::pin_in(hwlib::target::pins::d3);
+	auto down  = hwlib::target::pin_in(hwlib::target::pins::d4);
+	
+	auto g = game(w,left,right,down);
+	g.run();
 }

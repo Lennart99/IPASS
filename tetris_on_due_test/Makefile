@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := ../library/screen.cpp ../library/max7219.cpp
+SOURCES := ../library/screen.cpp ../library/max7219.cpp ../tetris_on_due/board.cpp ../tetris_on_due/game.cpp ../tetris_on_due/piece.cpp
 
 # header files in this project
-HEADERS := ../library/screen.hpp ../library/max7219.hpp
+HEADERS := ../library/screen.hpp ../library/max7219.hpp ../tetris_on_due/board.hpp ../tetris_on_due/game.hpp ../tetris_on_due/piece.hpp ../tetris_on_due/pin_in_invert.hpp
 
 # other places to look for files for this project
 SEARCH  := 
@@ -20,4 +20,4 @@ SEARCH  :=
 # set RELATIVE to the next higher directory 
 # and defer to the appropriate Makefile.* there
 RELATIVE := ..
-include $(RELATIVE)/Makefile.native
+include $(RELATIVE)/Makefile.due

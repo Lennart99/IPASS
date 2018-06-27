@@ -33,7 +33,7 @@ template<std::size_t _x, std::size_t _y>
 class max7219 {
 private:
 	hwlib::spi_bus & bus;
-	hwlib::pin_out & sel;
+	hwlib::pin_out & sel; 
 	
 	const uint8_t size_x;
 	const uint8_t size_y;
@@ -45,7 +45,6 @@ public:
 	 * @param address the first byte, represents the address of the register to set, only the last 4 bits are used, but all 8 bits are sent
 	 * @param d the second byte, represents the data to save in the register
 	 */
-
 	void sendData(const uint_fast8_t address, const uint_fast8_t d) {
 		uint8_t buff[size*2];
 		for(unsigned int i = 0; i < size; i++) {
@@ -62,7 +61,7 @@ public:
 		for(uint_fast8_t adr = 0x01; adr <= 0x08; adr++) {
 			sendData(adr, 0x00);
 		}
-		for(unsigned int i = 0; i<6; i++) {
+		for(unsigned int i = 0; i<size; i++) {
 			screens[i] = screen();
 		}
 	}
@@ -144,9 +143,8 @@ public:
 		
 		uint8_t out[size*2];
 		
-		for(unsigned int i = 0; i < size; i++) {
-			out[i*2]  = 0;
-			out[i*2+1]= 0;
+		for(unsigned int i = 0; i < size*2; i++) {
+			out[i]  = 0x00;
 		}
 		
 		for(unsigned int x = 0; x < size_x; x++) {

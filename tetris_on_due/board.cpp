@@ -39,17 +39,11 @@ void board::setPixel(unsigned int x, unsigned int y, bool b) {
 
 void board::removeFullRows() {
 	for(unsigned int y = 0; y < 24; y++) {
-		// remove all rows that are directly on top of the first one
-		while(getRow(y) == 0xFFFF) {// full row
-			if(y == 0) {
-				// shifting can't be done when there is nothing above the row to remove
-				setRow(0, 0x000);
-			} else {
-				setRow(1, 0x000); // remove row that isn't overridden by another one
-				// shift everything down by one
-				for(unsigned int i = 1; i < y+1; i++) {
-					setRow(i, getRow(i-1)); // copy row from above
-				}
+		if(getRow(y) == 0xFFFF) {// full row
+			setRow(y, 0x00);
+			// shift everything down by one
+			for(unsigned int i = y; i > 0; i--) {
+				setRow(i, getRow(i-1)); // copy row from above
 			}
 		}
 	}
